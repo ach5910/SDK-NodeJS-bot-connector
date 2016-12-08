@@ -4,8 +4,10 @@ import request from 'superagent'
 class Bot {
 
   constructor(options) {
-    this.apiDomain = options.apiDomain
+    this.apiDomain = 'https://api-bot-connector.recast.ai'
     this.botId = options.botId
+    this.userSlug = options.userSlug
+    this.userToken = options.userToken
     this.replies = []
   }
 
@@ -26,7 +28,8 @@ class Bot {
       if (payload) {
         this.replies.push(payload)
       }
-      request.post(`${this.apiDomain}/bots/${this.botId}/messages`)
+      request.post(`${this.apiDomain}/users/${this.userSlug}/bots/${this.botId}/messages`)
+      .set('Authorization', `Token ${this.userToken}`)
       .send({ messages: this.replies })
       .end((err, res) => {
         if (err) {
