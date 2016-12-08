@@ -4,7 +4,7 @@ import request from 'superagent'
 class Bot {
 
   constructor(options) {
-    this.apiDomain = 'https://api-bot-connector.recast.ai'
+    this.apiDomain = 'https://eeeacdec.ngrok.io'
     this.botId = options.botId
     this.userSlug = options.userSlug
     this.userToken = options.userToken
@@ -18,6 +18,8 @@ class Bot {
       senderId: req.body.senderId,
       chatId: req.body.chatId,
       content: req.body.message,
+      userSlug: this.userSlug,
+      userToken: this.userToken,
     }
     const message = new Message(options)
     this.handler(message)
