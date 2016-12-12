@@ -1,12 +1,25 @@
 {
-	"name": "bot-connector",
+	"name": "recastai-botconnector",
 	"version": "1.0.0",
 	"description": "Recast.AI official NodeJS SDK for bot connector",
-	"main": "./lib/bot.js",
+	"main": "lib/bot.js",
 	"scripts": {
 		"lint": "eslint src",
 		"build": "babel src -d lib"
 	},
+	"repository": {
+	"type": "git",
+	"url": "git+https://github.com/RecastAI/SDK-NodeJs.git"
+	},
+	"keywords": [
+		"recastai"
+	],
+	"author": "Jerome Houdan <jerome.houdan@recast.ai> (https://recast.ai)",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/RecastAI/SDK-NodeJs/issues"
+	},
+	"homepage": "https://github.com/RecastAI/SDK-NodeJs#readme",
 	"dependencies": {
 		"body-parser": "^1.15.2",
 		"express": "^4.14.0",

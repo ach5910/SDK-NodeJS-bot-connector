@@ -18,31 +18,63 @@ npm install --save ADEFINIR
 
 ## Usage
 
+### Catch and reply
+
 ```js
-import Bot from 'A DEFINIR'
-import express from 'express'
-import bodyParser from 'body-parser'
+const Bot = require('A DEFINIR')
+const express = require('express')
+const bodyParser = require('body-parser')
 
-const myBot = new Bot({ botId: 'YOUR BOT ID', userSlug: 'YOUR USER SLUG', userToken: 'YOUR USER TOKEN' })
-
-myBot.onTextMessage(message => {
-  console.log(message)
-  const text = {
-    type: 'text',
-    content: 'Here is a message sent with bot connector!',
-  }
-
-  message.reply(text)
-  .then(() => console.log('Message successfully sent'))
-  .catch(err => console.log(`Error while sending message: ${err}`))
-})
-
+/* server setup */
 const app = express()
 
 app.set('port', 5000)
 app.use(bodyParser.json())
 app.post('/', (req, res) => myBot.listen(req, res))
 app.listen(app.get('port'), () => console.log('Bot running on port', app.get('port')))
+
+/* setup bot */
+const myBot = new Bot({ botId: 'YOUR BOT ID', userSlug: 'YOUR USER SLUG', userToken: 'YOUR USER TOKEN' })
+
+/* on new message */
+myBot.onTextMessage(message => {
+  console.log(message)
+  const text = {
+    type: 'text',
+    content: 'Here is a reply!',
+  }
+
+  message.reply(text)
+  .then(() => console.log('Message successfully sent'))
+  .catch(err => console.log(`Error while sending message: ${err}`))
+})
+```
+
+### Push a message to one participant
+
+```js
+const payload = {
+  type: 'text',
+  content: 'Here is your pushed message',
+}
+
+myBot.sendMessage(payload, conversation, recipient)
+.then(() => console.log('Message successfully sent'))
+.catch(err => console.log(`Error while sending message: ${err}`))
+```
+
+### Broadcast a message to all participants
+
+```js
+const payload = {
+  type: 'text',
+  content: 'Here is a broadcast message',
+}
+
+myBot.broadcast(payload)
+.then((res) => {
+  console.log(res)
+})
 ```
 
 ## Documentation
