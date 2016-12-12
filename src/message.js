@@ -15,14 +15,14 @@ class Message {
 
   addReply(json) {
     if (json) {
-      this.replies.push(json)
+      this.replies = this.replies.concat(json)
     }
   }
 
   reply(payload) {
     return new Promise((resolve, reject) => {
       if (payload) {
-        this.replies.push(payload)
+        this.replies = this.replies.concat(payload)
       }
       request.post(`${this.apiDomain}/users/${this.userSlug}/bots/${this.botId}/conversations/${this.content.conversation}/messages`)
       .set('Authorization', `Token ${this.userToken}`)

@@ -4,7 +4,7 @@ import request from 'superagent'
 class Bot {
 
   constructor(options) {
-    this.apiDomain = 'https://eeeacdec.ngrok.io'
+    this.apiDomain = 'https://api-botconnector.recast.ai'
     this.botId = options.botId
     this.userSlug = options.userSlug
     this.userToken = options.userToken
@@ -27,12 +27,9 @@ class Bot {
 
   broadcast(payload) {
     return new Promise((resolve, reject) => {
-      if (payload) {
-        this.replies.push(payload)
-      }
       request.post(`${this.apiDomain}/users/${this.userSlug}/bots/${this.botId}/messages`)
       .set('Authorization', `Token ${this.userToken}`)
-      .send({ messages: this.replies })
+      .send({ messages: payload })
       .end((err, res) => {
         if (err) {
           return reject(err)

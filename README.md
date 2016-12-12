@@ -1,15 +1,14 @@
 # SDK-NodeJS-bot-connector
 
-[logo]: https://github.com/RecastAI/SDK-NodeJs/blob/master/misc/logo-inline.png "Recast.AI"
+[logo]: https://camo.githubusercontent.com/619c851714395ac0957dd5a2bdf08dd4aefe0469/68747470733a2f2f63646e2e7265636173742e61692f626f742d636f6e6e6563746f722f626f742d636f6e6e6563746f722d6c6f676f2e706e67 "bot connector"
 
 ![alt text][logo]
 
-Recast.AI official SDK in Node.js for bot-connector
+Recast.AI official SDK in Node.js for bot connector
 
 ## Synospis
 
-This module is a wrapper around the [Recast.AI](https://recast.ai) API, and allows you to:
-* Connect your bot to any channels
+This module is a wrapper around the [Bot connector](https://botconnector.recast.ai) API, and allows you to connect your bot to any channels
 
 ## Installation
 
