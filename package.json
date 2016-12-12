@@ -1,11 +1,11 @@
 {
-	"name": "bot-example",
+	"name": "bot-connector",
 	"version": "1.0.0",
-	"description": "",
-	"main": "bot.js",
+	"description": "Recast.AI official NodeJS SDK for bot connector",
+	"main": "./lib/bot.js",
 	"scripts": {
-		"start": "node ./node_modules/babel-cli/bin/babel-node.js bot.js",
-		"lint": "eslint bot.js"
+		"lint": "eslint src",
+		"build": "babel src -d lib"
 	},
 	"dependencies": {
 		"body-parser": "^1.15.2",
@@ -19,7 +19,8 @@
 		"babel-register": "^6.11.5",
 		"babel-eslint": "^6.1.2",
 		"eslint": "^3.0.1",
-		"eslint-config-zavatta": "^3.0.3"
+		"eslint-config-zavatta": "^3.0.3",
+		"eslint-plugin-import": "^1.6.1"
 	},
 	"eslintConfig": {
 		"extends": [

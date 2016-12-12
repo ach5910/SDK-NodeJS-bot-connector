@@ -1,2 +1,8 @@
+lib
 node_modules
-index.js
+.DS_Store
+npm-debug.log
+coverage
+
+yarn.lock
+mytest.js
