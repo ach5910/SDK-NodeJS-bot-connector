@@ -19,7 +19,7 @@ npm install --save ADEFINIR
 ## Usage
 
 ```js
-import Bot from './src/bot'
+import Bot from 'A DEFINIR'
 import express from 'express'
 import bodyParser from 'body-parser'
 
