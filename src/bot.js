@@ -2,15 +2,14 @@ import Message from './message'
 import request from 'superagent'
 
 class Bot {
-
-  constructor(options) {
+  constructor (options) {
     this.apiDomain = 'https://api-botconnector.recast.ai'
     this.botId = options.botId
     this.userSlug = options.userSlug
     this.userToken = options.userToken
   }
 
-  listen(req) {
+  listen (req) {
     const options = {
       botId: this.botId,
       apiDomain: this.apiDomain,
@@ -24,20 +23,19 @@ class Bot {
     this.handler(message)
   }
 
-  sendMessage(payload, conversation) {
+  sendMessage (payload, conversation) {
     request.post(`${this.apiDomain}/users/${this.userSlug}/bots/${this.botId}/conversations/${conversation}/messages`)
     .set('Authorization', `Token ${this.userToken}`)
     .send({ messages: [].concat(payload) })
     .end((err, res) => {
       if (err) {
         return reject(err)
-      } else {
-        return resolve(res)
       }
+      return resolve(res)
     })
   }
 
-  broadcast(payload) {
+  broadcast (payload) {
     return new Promise((resolve, reject) => {
       request.post(`${this.apiDomain}/users/${this.userSlug}/bots/${this.botId}/messages`)
       .set('Authorization', `Token ${this.userToken}`)
@@ -45,14 +43,13 @@ class Bot {
       .end((err, res) => {
         if (err) {
           return reject(err)
-        } else {
-          return resolve(res)
         }
+        return resolve(res)
       })
     })
   }
 
-  onTextMessage(handler) {
+  onTextMessage (handler) {
     this.handler = handler
   }
 }

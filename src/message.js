@@ -2,7 +2,7 @@ import request from 'superagent'
 
 class Message {
 
-  constructor(options) {
+  constructor (options) {
     this.botId = options.botId
     this.apiDomain = options.apiDomain
     this.userSlug = options.userSlug
@@ -13,13 +13,13 @@ class Message {
     this.replies = []
   }
 
-  addReply(json) {
+  addReply (json) {
     if (json) {
       this.replies = this.replies.concat(json)
     }
   }
 
-  reply(payload) {
+  reply (payload) {
     return new Promise((resolve, reject) => {
       if (payload) {
         this.replies = this.replies.concat(payload)
@@ -30,9 +30,8 @@ class Message {
       .end((err, res) => {
         if (err) {
           return reject(err)
-        } else {
-          return resolve(res)
         }
+        return resolve(res)
       })
     })
   }
