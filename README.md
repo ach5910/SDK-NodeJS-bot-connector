@@ -13,7 +13,7 @@ This module is a wrapper around the [Bot connector](https://botconnector.recast.
 ## Installation
 
 ```bash
-npm install --save ADEFINIR
+npm install --save recastai-botconnector
 ```
 
 ## Documentation
