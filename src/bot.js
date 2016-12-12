@@ -8,7 +8,6 @@ class Bot {
     this.botId = options.botId
     this.userSlug = options.userSlug
     this.userToken = options.userToken
-    this.replies = []
   }
 
   listen(req) {
@@ -29,7 +28,7 @@ class Bot {
     return new Promise((resolve, reject) => {
       request.post(`${this.apiDomain}/users/${this.userSlug}/bots/${this.botId}/messages`)
       .set('Authorization', `Token ${this.userToken}`)
-      .send({ messages: payload })
+      .send({ messages: [].concat(payload) })
       .end((err, res) => {
         if (err) {
           return reject(err)

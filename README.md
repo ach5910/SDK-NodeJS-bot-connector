@@ -24,8 +24,8 @@ You can find the full documentation [here](https://github.com/RecastAI/SDK-NodeJ
 
 This module contains 2 classes, as follows:
 
-* [Bot](https://github.com/RecastAI/SDK-NodeJS-bot-connector/wiki/Class-Bot) is the client allowing you to listen on your bot, or send a message at all participants of this bot.
-* [Message](https://github.com/RecastAI/SDK-NodeJS-bot-connector/wiki/Class-Message) is the class for reply or just add reply.
+* [Bot](https://github.com/RecastAI/SDK-NodeJS-bot-connector/wiki/Class-Bot) is the client allowing you to catch messages sent to your bot
+* [Message](https://github.com/RecastAI/SDK-NodeJS-bot-connector/wiki/Class-Message) is the class used for replies.
 
 ## More
 
