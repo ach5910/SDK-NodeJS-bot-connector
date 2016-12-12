@@ -18,7 +18,7 @@ npm install --save ADEFINIR
 
 ## Usage
 
-### Catch and reply
+#### Catch and reply
 
 ```js
 const Bot = require('A DEFINIR')
@@ -50,7 +50,7 @@ myBot.onTextMessage(message => {
 })
 ```
 
-### Push a message to one participant
+#### Push a message to one participant
 
 ```js
 const payload = {
@@ -58,12 +58,12 @@ const payload = {
   content: 'Here is your pushed message',
 }
 
-myBot.sendMessage(payload, conversation, recipient)
+myBot.sendMessage(payload, conversationId, recipient)
 .then(() => console.log('Message successfully sent'))
 .catch(err => console.log(`Error while sending message: ${err}`))
 ```
 
-### Broadcast a message to all participants
+#### Broadcast a message to all participants
 
 ```js
 const payload = {
