@@ -16,6 +16,35 @@ This module is a wrapper around the [Bot connector](https://botconnector.recast.
 npm install --save ADEFINIR
 ```
 
+## Usage
+
+```js
+import Bot from './src/bot'
+import express from 'express'
+import bodyParser from 'body-parser'
+
+const myBot = new Bot({ botId: 'YOUR BOT ID', userSlug: 'YOUR USER SLUG', userToken: 'YOUR USER TOKEN' })
+
+myBot.onTextMessage(message => {
+  console.log(message)
+  const text = {
+    type: 'text',
+    content: 'Here is a message sent with bot connector!',
+  }
+
+  message.reply(text)
+  .then(() => console.log('Message successfully sent'))
+  .catch(err => console.log(`Error while sending message: ${err}`))
+})
+
+const app = express()
+
+app.set('port', 5000)
+app.use(bodyParser.json())
+app.post('/', (req, res) => myBot.listen(req, res))
+app.listen(app.get('port'), () => console.log('Bot running on port', app.get('port')))
+```
+
 ## Documentation
 
 You can find the full documentation [here](https://github.com/RecastAI/SDK-NodeJS-bot-connector/wiki).
