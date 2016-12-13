@@ -23,15 +23,17 @@ class Bot {
     this.handler(message)
   }
 
-  sendMessage (payload, conversation) {
-    request.post(`${this.apiDomain}/users/${this.userSlug}/bots/${this.botId}/conversations/${conversation}/messages`)
-    .set('Authorization', `Token ${this.userToken}`)
-    .send({ messages: [].concat(payload) })
-    .end((err, res) => {
-      if (err) {
-        return reject(err)
-      }
-      return resolve(res)
+  sendMessage (payload, conversation, senderId) {
+    return new Promise((resolve, reject) => {
+      request.post(`${this.apiDomain}/users/${this.userSlug}/bots/${this.botId}/conversations/${conversation}/messages`)
+      .set('Authorization', `Token ${this.userToken}`)
+      .send({ messages: [].concat(payload), senderId })
+      .end((err, res) => {
+        if (err) {
+          return reject(err)
+        }
+        return resolve(res)
+      })
     })
   }
 

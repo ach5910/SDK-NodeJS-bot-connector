@@ -31,6 +31,7 @@ class Message {
         if (err) {
           return reject(err)
         }
+        this.replies = []
         return resolve(res)
       })
     })
