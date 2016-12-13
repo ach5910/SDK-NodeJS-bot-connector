@@ -90,7 +90,7 @@ This module contains 2 classes, as follows:
 
 ## More
 
-You can view the whole API reference at [man.recast.ai](https://man.recast.ai).
+You can view the whole API reference [here](https://botconnector.recast.ai/documentation).
 
 ## Author
 
