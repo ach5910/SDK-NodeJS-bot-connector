@@ -13,7 +13,7 @@ This module is a wrapper around the [Bot connector](https://botconnector.recast.
 ## Installation
 
 ```bash
-npm install --save ADEFINIR
+npm install --save recastai-botconnector
 ```
 
 ## Usage
@@ -21,7 +21,7 @@ npm install --save ADEFINIR
 #### Catch and reply
 
 ```js
-const Bot = require('A DEFINIR')
+const Bot = require('recastai-botconnector')
 const express = require('express')
 const bodyParser = require('body-parser')
 
