@@ -9,7 +9,7 @@ class Bot {
     this.userToken = options.userToken
   }
 
-  listen (req) {
+  listen (req, res) {
     const options = {
       botId: this.botId,
       apiDomain: this.apiDomain,
@@ -21,6 +21,9 @@ class Bot {
     }
     const message = new Message(options)
     this.handler(message)
+    if (res && typeof res.sendStatus === 'function') {
+      res.sendStatus(200)
+    }
   }
 
   sendMessage (payload, conversation, senderId) {
