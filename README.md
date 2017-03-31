@@ -6,6 +6,10 @@
 
 Recast.AI official SDK in Node.js for bot connector
 
+# DEPRECATED
+
+This SDK is deprecated, please use this [SDK](https://github.com/RecastAI/SDK-NodeJS)
+
 ## Synospis
 
 This module is a wrapper around the [Bot connector](https://botconnector.recast.ai) API, and allows you to connect your bot to any channels
